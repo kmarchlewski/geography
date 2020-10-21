@@ -1,0 +1,20 @@
+Package: geography
+Title: SQL-like operations on geographic database
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Krzysztof",
+           family = "Marchlewski",
+           role = c("aut", "cre"),
+           email = "k.marchlewski@vp.pl",
+           comment = c(ORCID = 0000-0003-0751-9035))
+Description: The package allows user to get to know a world.
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+Imports:
+    base,
+    shiny
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
