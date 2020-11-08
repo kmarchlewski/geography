@@ -25,10 +25,24 @@ add_row <- function (table, field, value) {
     stop ("There is no \"key\" name in the \"field\" vector.")
   }
 
+  key_type <- typeof(geo_data[[table]][[key_name]])
+
+  res <- tryCatch(
+    {
+    storage.mode(value[which(field == key_name)]) <- key_type
+    0L
+    },
+    warning = function (cond) {1L},
+    error = function (cond) {2L}
+  )
+
+  if (res != 0L) {
+    stop ("The \"key\" value has a wrong type.")
+  }
+
   if (any(geo_data[[table]][key_name] == value[field == key_name])) {
     stop ("The \"key\" value is not unique.")
   }
-
 
   types <- sapply(geo_data[[table]], typeof)
 
